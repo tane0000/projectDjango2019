@@ -1,0 +1,62 @@
+{% extends "./_base.html" %}
+{% block content %} 
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="float-right">
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'productcreate' %}">追加</a>
+                <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12 table-responsive">
+            <table class="table table-hover table-sm text-nowrap">
+                <caption>製品名リスト</caption>
+                <thead class="center-block thead-light">
+                    <tr>
+                        <th scope="col-3">ID:</th>
+                        <th scope="col-3">製品名:</th>
+                        <th scope="col-3">操作:</th>
+                    </tr>
+                </thead>
+                
+                {% for product in product_list %}
+                <tbody class="center-block">
+                    <tr>
+                        <td>{{ product.pk }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>
+                            <a class="badge badge-primary" href="{% url 'productupdate' product.pk %}">編集</a>
+                            <a class="badge badge-danger" href="{% url 'productdelete' product.pk %}">削除</a>
+                        </td>
+                    </tr>
+                </tbody>
+                
+                {% empty %}
+                <tbody>
+                    <tr>
+                        <tdcolspan="3">対象のデータがありません</td>
+                    </tr>
+                </tbody>
+
+                {% endfor %}
+            </table>
+            
+        </div>
+    </div>
+
+
+    <div class="row" >
+        <div class="col-12">
+            <div class="float-right">
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'productcreate' %}">追加</a>
+                <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,208 @@
+<div class="row" style="line-height:80%;">
+    <div class="col-12 col-sm-12">
+        <div class="float-right">
+            <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+            <a class="btn btn-sm btn-primary" href="{% url 'update' trouble.pk %}">編集</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete' trouble.pk %}">削除</a>
+        </div>
+    </div>
+    <div class="col-3 col-sm-1 text-nowrap">
+        <p><font size=-2>ID:</font></p>
+    </div>
+    <div class="col-9 col-sm-1">
+        <p><font size=-1>{{ trouble.pk }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>製品名:</font></p>
+    </div>
+    <div class="col-9 col-sm-2">
+        <p><font size=-1>{{ trouble.product_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>物件名:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.user_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>担当者名:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.staff_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>受付方法:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.accepted_method }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>発生日時:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.occurrence_datetime|date:"Y/m/d G:i:s" }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>復旧日時:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.restoration_datetime|date:"Y/m/d G:i:s" }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>対応区分:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.action_category }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>停止区分:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.suspend_category }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>不具合機器:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.trouble_machine }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>発生部位:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.trouble_location }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>Ｅコード:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.error_code }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>エラー名:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.error_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>不具合名:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.trouble_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>不具合状況:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.situation }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>不具合原因:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.cause }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>不具合対策:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.measure }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>復旧手順:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.restoration_procedure }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>特記事項:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.special_note }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>処置完了日:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.comlete_date|date:"Y/m/d" }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>処置区分:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.disposal_category }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>現地対応者:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.field_worker }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>社内対応者:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.office_worker }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>１次受付者:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.first_contact }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>受付日時:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.first_contact_datetime|date:"Y/m/d G:i:s" }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>入力日:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.input_date|date:"Y/m/d" }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 text-nowrap">
+        <p><font size=-2>入力者:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.inputter }}</font></p>
+    </div>
+    
+
+    <div class="col-12 col-sm-12">
+        <div class="float-right">
+            <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+            <a class="btn btn-sm btn-primary" href="{% url 'update' trouble.pk %}">編集</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete' trouble.pk %}">削除</a>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,116 @@
+{% extends "./_base.html" %}
+{% block content %} 
+{% load crispy_forms_tags %}
+
+<div class="container-fluid">
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">検索条件</h5>
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-sm btn-outline-secondary" form="filter">検索</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                <form id="filter" method="get">
+                    <div class="modal-body">
+                        {{filter.form|crispy}}
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <a class="btn btn-sm btn-outline-secondary" data-dismiss="modal">戻る</a>
+                    <button type="submit" class="btn btn-sm btn-outline-secondary" form="filter">検索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-sm btn-secondary filtered" style="visibility:hidden" href="/?page=1">検索を解除</a>
+            <div class="float-right">
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'create' %}" data-toggle="tooltip" data-placement="left" title="不具合情報登録ページを表示します">新規</a>
+                <a class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#">検索</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container-fluid">
+    
+    {% for trouble in trouble_list %}
+    <div class="row d-block d-sm-none">
+        <div class="col">
+            {% include "./trouble_card_toppage.html/" %}
+        </div>
+    </div>
+    {% empty %}
+    <div class="row d-block d-sm-none">
+        <div class="col">
+            <tdcolspan="3">対象のデータがありません</td>
+        </div>
+    </div>
+    {% endfor %}
+    
+    <div class="row d-none d-sm-block">
+        <div class="col-12 table-responsive">
+            <table class="table table-hover table-sm text-nowrap">
+                <caption>不具合リスト一覧</caption>
+                <thead class="center-block thead-light">
+                    <tr style="line-height: 100%;">
+                        <th scope="col-1"><font size=-1>ID</font></th>
+                        <th scope="col-3"><font size=-1>物件名</font></th>
+                        <th scope="col-2"><font size=-1>発生日時</font></th>
+                        <th scope="col-5"><font size=-1>不具合名</font></th>
+                        <th scope="col-1"><font size=-1>操作</font></th>
+                    </tr>
+                </thead>
+                
+                {% for trouble in trouble_list %}
+                <tbody class="center-block">
+                    <tr style="line-height: 100%;">
+                        <td><font size=-1>{{ trouble.pk }}</font></td>
+                        <td><font size=-1>{{ trouble.user_name }}</font></td>
+                        <td><font size=-1>{{ trouble.occurrence_datetime|date:"Y/m/d G:i:s" }}</font></td>
+                        <td><font size=-1>{{ trouble.trouble_name }}</font></td>
+                        <td>
+                            <font size=-1>
+                            <a class="badge badge-dark" href="{% url 'detail' trouble.pk %}">詳細</a>
+                            <a class="badge badge-primary" href="{% url 'update' trouble.pk %}">編集</a>
+                            <a class="badge badge-danger" href="{% url 'delete' trouble.pk %}">削除</a>
+                            </font>
+                        </td>
+                    </tr>
+                </tbody>
+                
+                {% empty %}
+                <tbody>
+                    <tr>
+                        <tdcolspan="3">対象のデータがありません</td>
+                    </tr>
+                </tbody>
+
+                {% endfor %}
+            </table>
+            
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="col-6">
+            {% include "./_pagination.html" %}
+        </div>
+        <div class="col-6">
+            <div class="float-right">
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'create' %}" data-toggle="tooltip" data-placement="left" title="不具合情報登録ページを表示します">新規</a>
+                <a class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#">検索</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

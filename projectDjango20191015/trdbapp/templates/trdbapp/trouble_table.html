@@ -1,0 +1,124 @@
+<div class="row">
+    <div class="col-12 col-sm-4">
+        <table class="table table-bordered table-sm" style="line-height: 100%;">
+            <tbody>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>ID</font></th>
+                    <td><font size=-2>{{ trouble.pk }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>製品名</font></th>
+                    <td><font size=-2>{{ trouble.product_name }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>物件名</font></th>
+                    <td><font size=-2>{{ trouble.user_name }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>担当者名</font></th>
+                    <td><font size=-2>{{ trouble.staff_name }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>受付方法</font></th>
+                    <td><font size=-2>{{ trouble.accepted_method }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>発生日時</font></th>
+                    <td><font size=-2>{{ trouble.occurrence_datetime|date:"Y/m/d G:i:s" }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>復旧日時</font></th>
+                    <td><font size=-2>{{ trouble.restoration_datetime|date:"Y/m/d G:i:s" }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>対応区分</font></th>
+                    <td><font size=-2>{{ trouble.action_category }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>停止区分</font></th>
+                    <td><font size=-2>{{ trouble.suspend_category }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>現地対応者</font></th>
+                    <td><font size=-2>{{ trouble.field_worker }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>社内対応者</font></th>
+                    <td><font size=-2>{{ trouble.office_worker }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>１次受付者</font></th>
+                    <td><font size=-2>{{ trouble.first_contact }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>受付日時</font></th>
+                    <td><font size=-2>{{ trouble.first_contact_datetime|date:"Y/m/d G:i:s" }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>入力者</font></th>
+                    <td><font size=-2>{{ trouble.inputter }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>入力日時</font></th>
+                    <td><font size=-2>{{ trouble.input_date|date:"Y/m/d" }}</font></td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+    </div>
+        
+    <div class="col-12 col-sm-8">
+        <table class="table table-bordered table-sm" style="line-height: 100%;">
+            <tbody>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>不具合名</font></th>
+                    <td><font size=-2>{{ trouble.trouble_name }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>不具合状況</font></th>
+                    <td><font size=-2>{{ trouble.situation }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>不具合原因</font></th>
+                    <td><font size=-2>{{ trouble.cause }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>不具合対策</font></th>
+                    <td><font size=-2>{{ trouble.measure }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>復旧手順</font></th>
+                    <td><font size=-2>{{ trouble.restoration_procedure }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>特記事項</font></th>
+                    <td><font size=-2>{{ trouble.special_note }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>処置完了日</font></th>
+                    <td><font size=-2>{{ trouble.complete_date|date:"Y/m/d" }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>処置区分</font></th>
+                    <td><font size=-2>{{ trouble.disposal_category }}</font></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>不具合機器</font></th>
+                    <td><font size=-2>{{ trouble.trouble_machine }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>発生部位</font></th>
+                    <td><font size=-2>{{ trouble.trouble_location }}</font></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="table-active" nowrap><font size=-1>エラー名</font></th>
+                    <td><font size=-2>{{ trouble.error_name }}</font></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    
+</div>

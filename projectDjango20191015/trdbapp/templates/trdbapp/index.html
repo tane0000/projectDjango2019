@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BOOKROBO</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark" >
+        <a class="navbar-brand" href="#">ＢＲ不具合ＤＢ</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false"
+            aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="Navber">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">不具合登録</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink2" aria-haspopup="true" aria-expanded="false">マスター管理</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">製品マスター</a>
+                        <a class="dropdown-item" href="#">物件マスター</a>
+                        <a class="dropdown-item" href="#">機器マスター</a>
+                        <a class="dropdown-item" href="#">受付方法マスター</a>
+                        <a class="dropdown-item" href="#">対応区分マスター</a>
+                        <a class="dropdown-item" href="#">停止区分マスター</a>
+                        <a class="dropdown-item" href="#">処置区分マスター</a>
+                    </div><!-- ./dropdown-menu -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:alert('まだ作っていません');">データ管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="/admin">管理サイト</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="/admin/logout">ログアウト</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                {% block content %}
+                
+                
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-hover table-sm">
+                                <thead class="thead-dark text-center center-block">
+                                    <tr>
+                                        <th scope="col">物件名</th>
+                                        <th scope="col">不具合名</th>
+                                        <th scope="col">発生日時</th>
+                                        <th scope="col" class="hidden-sm">復旧日時</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                        
+                                {% for trouble in item_list %}
+                                <tbody class="text-center center-block">
+                                    <tr>
+                                        <td>{{ trouble.user_name }}</td>
+                                        <td>{{ trouble_name }}</td>
+                                        <td>{{ trouble.occurrence_datetime|date:"Y/m/d G:i:s" }}</td>
+                                        <td class="hidden-sm">{{ trouble.restoration_datetime|date:"Y/m/d G:i:s" }}</td>
+                                        <td>
+                                            <a class="badge badge-warning" href="{% url 'update' item.pk %}">詳細・編集</a>
+                                            <a class="badge badge-danger" href="{% url 'delete' item.pk %}">削除</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                        
+                                {% empty %}
+                                <tbody>
+                                    <tr>
+                                        <tdcolspan="3">対象のデータがありません</td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                    
+<input type="date" id="date">
+
+                    {% for bruser in brusers %}
+                    
+                    <div class="col-12">
+                        <table class="table table-hover table-sm">
+                            <tbody class="text-center center-block">
+                                <tr>
+                                    <td>{{ bruser.name }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% endfor %}
+                    
+                {% endblock %}
+            </div>
+        <div>
+    </div>
+    
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{% static "app/js/app.js" %}"></script>
+</body>
+
+</html>

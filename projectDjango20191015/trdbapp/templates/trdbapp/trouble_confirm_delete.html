@@ -1,0 +1,38 @@
+{% extends "./_base.html" %}
+<!--  -->
+{% block content %}
+<div class="container-fluid">
+    <h3 class="text-center">データ削除</h3>
+    <p>このデータを削除します。よろしいですか？</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="d-block d-sm-none">
+            {% include "./trouble_card.html" %}
+        </div>
+        
+        <div class="d-none d-sm-block">
+            <div class="row">
+                <div class="col-12">
+                    <div class="float-right">
+                        <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+                        <input type="submit" class="btn btn-sm btn-danger" value="削除" />
+                    </div>
+                </div>
+            </div>
+        
+            {% include "./trouble_table.html" %}
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="float-right">
+                        <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+                        <input type="submit" class="btn btn-sm btn-danger" value="削除" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+<div class="card card-body bg-light p-2">
+
+<div class="row" style="line-height: 50%;">
+    <div class="col-3 col-sm-1">
+        <p><font size=-2>ID:</font></p>
+    </div>
+    <div class="col-9 col-sm-1">
+        <p><font size=-1>{{ trouble.pk }}</font></p>
+    </div>
+    
+    <div class="col-3 col-sm-2">
+        <p><font size=-2>製品名:</font></p>
+    </div>
+    <div class="col-9 col-sm-8">
+        <p><font size=-1>{{ trouble.product_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2">
+        <p><font size=-2>物件名:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.user_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2">
+        <p><font size=-2>発生日時:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.occurrence_datetime|date:"Y/m/d G:i:s" }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2">
+        <p><font size=-2>不具合機器:</font></p>
+    </div>
+    <div class="col-9 col-sm-3">
+        <p><font size=-1>{{ trouble.trouble_machine }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2">
+        <p><font size=-2>不具合名:</font></p>
+    </div>
+    <div class="col-9 col-sm-10">
+        <p><font size=-1>{{ trouble.trouble_name }}</font></p>
+    </div>
+
+    <div class="col-3 col-sm-2 d-none d-sm-block">
+        <p><font size=-2>不具合状況:</font></p>
+    </div>
+    <div class="col-9 col-sm-10 d-none d-sm-block">
+        <p><font size=-1>{{ trouble.situation }}</font></p>
+    </div>
+
+    <div class="col-12 col-sm-12">
+        <div class="float-right">
+            <a class="btn btn-sm btn-outline-secondary" href="{% url 'detail' trouble.pk %}">詳細</a>
+            <a class="btn btn-sm btn-primary" href="{% url 'update' trouble.pk %}">編集</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete' trouble.pk %}">削除</a>
+        </div>
+    </div>
+
+</div>
+
+
+</div>

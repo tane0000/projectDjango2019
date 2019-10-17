@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+ <html lang="ja">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>アプリケーション名</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static "trdbapp/css/trdbapp.css" %}" rel="stylesheet">
+</head>
+
+<body style="padding-top:4.5rem;">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-secondary" >
+        <a class="navbar-brand" href="/?page=1">ＢＲ不具合ＤＢ</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Navber">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create' %}">不具合登録</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink2" aria-haspopup="true" aria-expanded="false">マスター管理</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'product' %}">製品マスター</a>
+                        <a class="dropdown-item" href="{% url 'bruser' %}">物件マスター</a>
+                        <a class="dropdown-item" href="{% url 'brmachine' %}">機器マスター</a>
+                        <a class="dropdown-item" href="{% url 'acceptedmethod' %}">受付方法マスター</a>
+                        <a class="dropdown-item" href="{% url 'actioncategory' %}">対応区分マスター</a>
+                        <a class="dropdown-item" href="{% url 'suspendcategory' %}">停止区分マスター</a>
+                        <a class="dropdown-item" href="{% url 'disposalcategory' %}">処置区分マスター</a>
+                    </div><!-- ./dropdown-menu -->
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink2" aria-haspopup="true" aria-expanded="false">データ管理</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="export/">データExport(CSV)</a>
+                        <a class="dropdown-item" href="import">データImport(CSV)</a>
+                    </div><!-- ./dropdown-menu -->
+                </li>
+                
+            </ul>
+            
+            {% if user.is_authenticated %}
+            <span class="navbar-text"><font size=-1>{{ user.get_username }}</font></span>
+            <a href="/admin/logout"><font size=-1>ログアウト</font></a>
+            {% endif %}
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{% static "trdbapp/js/trdbapp.js" %}"></script>
+    
+</body> </html>

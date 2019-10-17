@@ -1,0 +1,39 @@
+{% extends "./_base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 d-none d-sm-block">
+            <div class="float-right">
+                <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+                <a class="btn btn-sm btn-primary" href="{% url 'update' trouble.pk %}">編集</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete' trouble.pk %}">削除</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-block d-sm-none">
+        <h5 class="text-center">不具合詳細</h5>
+        <div class="card card-body bg-light p-2">
+            {% include "./trouble_card.html/" %}
+        </div>
+    </div>
+
+    <!--  -->
+    <div class="d-none d-sm-block">
+        <h5 class="text-center">不具合詳細</h5>
+        <div class="card card-body">
+            {% include "./trouble_table.html" %}
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+                <div class="float-right">
+                    <a class="btn btn-sm btn-outline-secondary" href="javascript:void(0);" onclick="window.history.back();">戻る</a>
+                    <a class="btn btn-sm btn-primary" href="{% url 'update' trouble.pk %}">編集</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'delete' trouble.pk %}">削除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
